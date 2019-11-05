@@ -1,0 +1,42 @@
+1、天河使用流程
+cd code
+cd langevin_revise
+make -j 8
+cd bin
+yhbatch -N64 -c24 -n64 ./submit_langevin.sh 6.54
+（此处N、n表示机器数，不要大于64，开始时不要选的过大；c表示线程数（一台机器），就设置成24就可以，程序里也是）
+输出文件？（问学长）
+
+其他：
+2、计算资源上限 64个机器
+
+3、输入：在bin目录下
+
+4、其他命令：
+yhq：可以看到提交的任务
+ll ：看到输出文件
+yh cancel (加上yhq中看到的任务编号）：取消任务
+yh run（加上yhbatch后面的一串，可以在屏幕输出）
+
+5、U236的时候输6.54，程序中langevin.cpp中fill一行写10
+Th226的时候输11.0，程序中langevin.cpp中fill一行写15（至少要大于11，15是否合适待定）
+
+6、高斯展宽：μ=0，σ=4
+
+7、VPN账号：pku_tsfan_1（有效期至：2017-08-28）
+     初始密码：q4DwCXVT
+
+8、slurm文件夹：看到本来应在屏幕上输出的信息
+
+9、学长服务器
+
+cd code
+cd langevin_revise
+make -j 8
+cd bin
+mpirun -n 1 ./langevin 6.54(th为11.0,6.54为U的激发能）
+
+tmux:（断了之后还可以重连）
+任一位置输入：tmux 
+ctrl d（退出）
+tmux a （重新进入）
